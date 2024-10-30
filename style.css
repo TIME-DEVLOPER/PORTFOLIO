@@ -1,0 +1,221 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:  serif,cursive;
+}
+a{
+  color: #fff;
+  text-decoration: none;
+}
+.navbar{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 25px 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  animation: show_nav 1.5s linear forwards;
+  animation-delay: 1.2s;
+}
+@keyframes show_nav{
+  100%{
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.navbar .logo{
+  font-size: 30px;
+  font-weight: 900;
+}
+.navbar ul{
+  display: flex;
+}
+.navbar ul li{
+  list-style: none;
+  margin-left: 35px;
+}
+.navbar ul li a{
+  font-size: 25px;
+  font-weight: 600;
+  transition: .5s;
+}
+.navbar ul li:hover a,
+.navbar ul li.active a{
+  color: lime;
+}
+.home{
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  height: 100vh;
+  padding: 60px 9% 0;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  animation: show_nav 1.5s linear forwards;
+  animation-delay: 1.6s;
+}
+.home_info h1{
+  font-size: 55px
+}
+.home_info h2{
+  font-size: 32px;
+  margin-top: -10px;
+  display: inline-block;
+}
+.home_info h2 span{
+  position: relative;
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: .7px lime;
+ animation: display_text 16s linear infinite;
+  animation-delay: calc(-4s * var(--i));
+}
+@keyframes display_text{
+25%,100%{display: none;}
+}
+.home_info h2 span::before{
+  content: attr(data-text);
+  position: absolute;
+  width: 0%;
+  border-right: 2px solid lime;
+  color: lime;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: fill_text 4s linear infinite;
+}
+@keyframes fill_text{
+  10%,100%{
+    width: 0;
+  }
+  70%,90%{
+    width: 100%;
+  }
+}
+.home_info p{
+  font-size: 16px;
+  margin: 10px 0px 25px 0px;
+}
+.home_info .btn_sci{
+  display: flex;
+  align-items: center;
+}
+.btn{
+  display: inline-block;
+  padding: 10px 30px;
+  background: lime;
+  border: 2px solid lime;
+  font-size: 16px;
+  color: #000;
+  font-weight: 700;
+  border-radius: 40px;
+  box-shadow: 0 0 10px limegreen;
+  transition: .5s;
+}
+.btn:hover{
+  background: transparent;
+  color: lime;
+  box-shadow: none;
+}
+.home_info .btn_sci .sci{
+  margin-left: 10px;
+ display: flex;
+}
+.home_info .btn_sci .sci a{
+  height: 50px;
+  width: 50px;
+  display: flex;
+  padding: 8px;
+  border: 2px solid lime;
+  border-radius: 50%;
+  font-size: 20px;
+  color: lime;
+  margin: 0 8px;
+  transition: .5s;
+}
+.home_info .btn_sci .sci a{
+  display: inline-flex;
+}
+.home_info .btn_sci .sci a:hover {
+ background: lime;
+ color: #000;
+ box-shadow: 0 0 10px lime;
+}
+.home_img .img_box{
+ position: relative;
+  height: 32vw;
+  width: 32vw;
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.home_img .img_box::before,
+.home_img .img_box::after{
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: conic-gradient(transparent, transparent, transparent, lime);
+  transform: rotate(0deg);
+  animation: rotate_border 10s linear infinite;
+}
+@keyframes rotate_border{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.home_img .img_box::after{
+  animation-delay: -5s;
+}
+.home_img .img_box .img_item{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: #1f242d;
+  border: 2px solid #1f242d;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+}
+.home_img .img_box .img_item img{
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 5px;
+}
+.bars_animation{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  z-index: -1;
+}
+.bars_animation .bars{
+  height: 110%;
+  width: 110%;
+  background: #1f242d;
+  transform: translateY(-100%);
+  animation: show_bars .5s ease-in-out forwards;
+  animation-delay: calc(.1s * var(--i));
+}
+@keyframes show_bars{
+  100%{
+    transform: translateY(-0%);
+    
+  }
+}
